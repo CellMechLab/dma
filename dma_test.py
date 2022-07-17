@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 from magicclass import magicclass, field
+from magicclass.ext.pyqtgraph import QtPlotCanvas
 from pathlib import Path
-from magicgui.widgets import ComboBox
 import numpy as np
 import classi
 
@@ -11,6 +11,7 @@ class PlotData:
     mode = field(str,options={'name':'mode', 'value':'Load', 'choices':('Load','Indentation','Cantilever','Piezo')})
     degree = field(int,options={'value':4, 'min':1, 'max':5, 'widget_type':"Slider" })
     smoothness = field(int,options={'value':1, 'min':1, 'max':10, 'widget_type':"Slider" })
+    pgtest = field(QtPlotCanvas)
     def __init__(self, title=None):
         self.title = title
         self.t = None
